@@ -45,8 +45,8 @@ First clone and build `matrix-js-sdk`:
 
 ```bash
 git clone https://github.com/matrix-org/matrix-js-sdk.git
-git checkout 0c7342cb20c51d049997597b5b96de1744bd7b66 # Workaround: We have not yet confirmed support for codes newer than this version.
 pushd matrix-js-sdk
+git checkout 0c7342cb20c51d049997597b5b96de1744bd7b66 # Workaround: We have not yet confirmed support for codes newer than this version.
 yarn link
 yarn install
 popd
@@ -55,7 +55,7 @@ popd
 Then similarly with `OWND Messenger React sdk`:
 
 ```bash
-git clone https://github.com/datasign-inc/matrix-react-sdk.git
+git clone https://github.com/OWND-Project/OWND-Messenger-React-SDK.git matrix-react-sdk
 pushd matrix-react-sdk
 yarn link
 yarn link matrix-js-sdk
@@ -66,12 +66,21 @@ popd
 Clone the repo and switch to directory:
 
 ```bash
-git https://github.com/datasign-inc/element-web
-cd element-web
+git clone https://github.com/OWND-Project/OWND-Messenger-Client client
+cd client
 ```
 
 Configure the app by copying `config.sample.json` to `config.json` and
 modifying it. See the [configuration docs](docs/config.md) for details.
+
+In particular, set the `base_url` and `server_name` under the `m.homeserver` key.
+
+```
+         "m.homeserver": {
+            "base_url": "http://localhost:8008",
+            "server_name": "localhost:8008"
+         },
+```
 
 Finally, build and start itself:
 
